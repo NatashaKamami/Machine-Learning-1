@@ -44,6 +44,7 @@ The data includes the following columns:
 1. **Encoding**: Label encoding was used for columns with binary variables i.e yes and no, while one-hot encoding was used for columns with multiple categories since label encoding in such columns may introduce an unintended ordinal relationship.
 2.  **Feature Scaling**: Standard Scaling was used in the age column since data was normally distributed, MinMax Scaling was used in the day column since data was not normally distributed while robust scaling was used in all the other numeric columns(balance, duration, campaign, previous, pdays) since data in these columns had outliers and was also not normally distributed.
 3.  **Handling Imbalanced Data**: Sythetic Minority Oversamping Technique(SMOTE) was used to generate sythetic samples for the minority class so that the data can be balanced.
+   
    ![image](https://github.com/user-attachments/assets/061213c8-d124-41db-a943-d70d866acdd9)
 
 ## Selecting and Training the model
