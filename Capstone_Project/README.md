@@ -25,6 +25,7 @@ The data includes the following columns:
 
 ## Exploratory Data Analysis
 1. **Description of summary statistics for our numeric columns**: Helps us get an overview of our data and helps in identifying outliers in our data.
+   
   ![image](https://github.com/user-attachments/assets/aec54db6-d427-442c-b328-0a5fa759e2a9)
 
 2. **Distribution plots for the numeric columns**: Displays distribution of values in the numeric columns and can show presence of outliers.
@@ -55,33 +56,37 @@ The data includes the following columns:
 To see which classification model works best and also see the performance of the models before hyperparameter tuning is done.
 - **1. Logistic Regression**
 
-![image](https://github.com/user-attachments/assets/1278ba7a-6c32-4f25-826a-ef7adc7184a4)
+![image](https://github.com/user-attachments/assets/622a90c2-b318-404e-a873-12947af84cf7)
 - **2. Support Vector Machine - Linear Kernel**
 
-![image](https://github.com/user-attachments/assets/023af4b7-cb25-49ff-a6c4-d9ac9b9b38d3)
+![image](https://github.com/user-attachments/assets/6b92f6e3-9550-47b0-88e5-d9385013c246)
 - **3. Support Vector Machine - RBF Kernel**
 
-![image](https://github.com/user-attachments/assets/9a477cb6-5c99-4cd1-aa4d-79f4d9781e86)
+![image](https://github.com/user-attachments/assets/550f5965-e3f1-48de-844a-3843c3affa38)
 - **4. Decision Tree Classifier**
 
-![image](https://github.com/user-attachments/assets/f112ff37-8dfd-4088-bb41-7024038c0e02)
+![image](https://github.com/user-attachments/assets/bd8cc240-8d49-414c-a66a-6015d67c4545)
+
 - **5. Random Forest Classifier**
 
-![image](https://github.com/user-attachments/assets/cd34b2fa-3c97-4f47-a8c0-85c536584da8)
+![image](https://github.com/user-attachments/assets/e8fc6619-16ff-48a9-9e8a-68a5ca9bc0bc)
 - **6. XG Boost Classifier**
 
-![image](https://github.com/user-attachments/assets/f5cfbe9c-1bac-40e7-908f-83113129ea0b)
+![image](https://github.com/user-attachments/assets/565daa11-4ae6-4883-87f6-2be1fb3befad)
 
-From the performance metrics in each of the models, we can see that the random forest classifier performs the best and is the best model to tune in order to enhance its performance.
+From the performance metrics, Random Forest stands out as the best model due to its ability to handle complex relationships, feature interactions, and outliers, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly as they assume linear separability, which limits their performance on complex datasets. SVM with an RBF kernel can handle non-linearity but is computationally expensive and sensitive to hyperparameters like C . Decision Trees on the other hand tend to overfit, especially with imbalanced data. And while XGBoost is powerful, it requires extensive tuning to surpass Random Forest. 
 
 ### Hyper parameter tuning the best model
 Hyper parameter tuning was done using Randomized Search CV
-![image](https://github.com/user-attachments/assets/6516a8b9-0327-44ae-b4e2-35d1f4a1d9b9)
 
-On comparing our F1 score of the baseline random forest moddl and the tuned model, the F1 is higher in the tuned model hence hyperparameter tuning has enhanced our model performance and withe the same parameters we will make predictions on our test set to see if our model performs just as well on the unseen data.
+![image](https://github.com/user-attachments/assets/5178ea9a-3930-46d5-887b-bc8a0554fa59)
+
+
+On comparing our F1 score of the baseline random forest model and the tuned model, the F1 is higher in the tuned model hence hyperparameter tuning has enhanced our random forest model performance making it an optimal choice for analysis and with the same parameters we will make predictions on our test set to see if our model performs just as well on the unseen data.
 
 ### Final evaluation on the test set
-![image](https://github.com/user-attachments/assets/919f1344-5a6b-4daf-b6fa-e5bcc32270a6)
+![image](https://github.com/user-attachments/assets/2205fcaf-1fb9-40ff-9415-ffe598ab983b)
+
 
 Judging from the performance metrics from evaluation on the test set, we can see that the model works just as fine on new data as it did on the training data.
 
@@ -90,4 +95,16 @@ Judging from the performance metrics from evaluation on the test set, we can see
 
 The Area under the above curve provides a better understanding of how well the model is detecting the minority class.
 An AUC-PR of 0.99 means that the model achieves near-perfect precision and recall for the positive clasd suggesting that the model is correctly identifying most of the positive instances (high recall) while also minimizing false positives (high precision).
+
+## Real-World Implications of the Model
+- **1. Targeted Marketing Campaigns**: 
+By predicting which customers are most likely to subscribe to a term deposit, the bank can focus efforts on high-potential leads by allocating resources (e.g., time, budget, and workforce) to customers with a high likelihood of subscription, maximizing return on investment (ROI).
+- **2. Cost Optimization**:
+The model reduces unnecessary expenses by avoiding unproductive contacts e.g customers predicted to have a low probability of subscription can either be deprioritized or approached with less intensive marketing efforts.
+- **3. Improved Campaign Success Rates**:
+With the predictive capability of the model, the bank can estimate the success rate of a campaign before launching it, based on the number of high-likelihood customers targeted making it easier to track performance and adjust strategies.
+- **4. Long-Term Customer Relationship Management**:
+By identifying customers who are more likely to subscribe, the bank can prioritize building long-term relationships with them, possibly cross-selling or upselling other products in the future. Offering a positive and personalized experience for these customers can increase loyalty and retention rates.
+
+
 
