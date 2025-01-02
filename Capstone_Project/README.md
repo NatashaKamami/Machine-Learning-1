@@ -47,8 +47,8 @@ The data includes the following columns:
 2.  **Feature Scaling**: Standard Scaling was used in the age column since data was normally distributed, MinMax Scaling was used in the day column since data was not normally distributed while robust scaling was used in all the other numeric columns(balance, duration, campaign, previous, pdays) since data in these columns had outliers and was also not normally distributed.
 3.  **Handling Imbalanced Data**: Sythetic Minority Oversamping Technique(SMOTE) was used to generate sythetic samples for the minority class so that the data can be balanced.
    
-   ![image](https://github.com/user-attachments/assets/061213c8-d124-41db-a943-d70d866acdd9)
-
+![image](https://github.com/user-attachments/assets/0754c24e-4bc8-4705-bab0-d83e9a2c9be5)
+ 
 ## Selecting and Training the model
 - **Splitting the data into training, validation and training sets**: 60% for training, 20% for validation and 20% for testing.
   ![image](https://github.com/user-attachments/assets/46e577db-52ff-498d-95b8-4400f42e5f40)
@@ -75,7 +75,7 @@ To see which classification model works best and also see the performance of the
 
 ![image](https://github.com/user-attachments/assets/565daa11-4ae6-4883-87f6-2be1fb3befad)
 
-From the performance metrics, Random Forest stands out as the best performing model due to its ability to handle complex relationships, feature interactions, and outliers, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly in comparison since they assume linear separability, which limits their performance on complex datasets. Although SVM with an RBF kernel can handle non-linearity, it is computationally expensive and sensitive to hyperparameters like C hence why it did not perform as well. Decision Trees on the other hand are prone to overfitting especially with imbalanced data. And while XGBoost is powerful, it requires extensive tuning to surpass Random Forest. 
+Since the dataset was imbalanced, and one class is more important than the other (i.e, identifying customers who subscribe to the term deposit is more important than identifying those who don't), F1 score is the evaluation metric that was used to evaluate model performance. Random Forest stands out as the best performing model due to its ability to handle complex relationships, feature interactions, and outliers, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly in comparison since they assume linear separability, which limits their performance on complex datasets. Although SVM with an RBF kernel can handle non-linearity, it is computationally expensive and sensitive to hyperparameters like C hence why it did not perform as well. Decision Trees on the other hand are prone to overfitting especially with imbalanced data. And while XGBoost is powerful, it requires extensive tuning to surpass Random Forest. 
 
 ### Hyper parameter tuning the best model
 Hyper parameter tuning was done using Randomized Search CV
@@ -89,19 +89,14 @@ On comparing our F1 score of the baseline random forest model and the tuned mode
 ![image](https://github.com/user-attachments/assets/2205fcaf-1fb9-40ff-9415-ffe598ab983b)
 
 
-Judging from the performance metrics from evaluation on the test set, we can see that the model works just as fine on new data as it did on the training data.
+Judging from the F1 score from evaluation on the test set, we can see that the model works just as fine on new data as it did on the training data.
 
 ### Evaluating the tuned model using the precision-recall curve
 ![image](https://github.com/user-attachments/assets/b031c92d-90ab-48b1-9c89-9a256e206bdb)
 
 
-The above curve provides a better understanding of how well the model is at detecting the minority class. An AUC-PR of 0.99 means that the model achieves near-perfect precision and recall for the positive clasd suggesting that the model is correctly identifying most of the positive instances (high recall) while also minimizing false positives (high precision).
+The above curve provides a better understanding of how well the model is at detecting the minority class(positive class). An AUC-PR of 0.99 means that the model achieves near-perfect precision and recall for the positive class suggesting that the model is correctly identifying most of the positive instances (high recall) while also minimizing false positives (high precision).
 
-### Evaluating the tuned model using the ROC-AUC curve
-![image](https://github.com/user-attachments/assets/579fe1e0-0a25-4c3b-8f24-1a15f2b60794)
-
-
-The above curve provides a better understanding of how well the model is at differentiating between the positive class and the negative class. A ROC-AUC score of 0.99 means that the model can almost perfectly distinguish between the positive and negative classes, making it highly reliable for predicting customer behavior in the bank marketing campaign.
 
 ## Error Analysis
 ### Confusion Matrix
