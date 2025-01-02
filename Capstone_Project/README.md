@@ -15,7 +15,7 @@ The data includes the following columns:
 - **Housing**: Whether the customer has a housing loan.
 - **Loan**: Whether the customer has a personal loan.
 - **Contact**: Communication type used to contact the customer.
-- **Day**: The last contact day of the week.
+- **Day**: The last contact day of the month.
 - **Month**: The last contact month of the year.
 - **Duration**: Last contact duration in seconds.
 - **Campaign**: Number of contacts performed during this campaign for a customer.
