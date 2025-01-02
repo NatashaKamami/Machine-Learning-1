@@ -1,5 +1,6 @@
 # ANALYSIS OF BANK MARKETING CAMPAIGN SUCCESS
 ## Problem Statement: Predicting the likelihood that a customer will subscribe to a term deposit. 
+A **term deposit**, also known as a fixed deposit, is a type of financial product offered by banks or financial institutions where an individual deposits a certain amount of money for a fixed period at a predetermined interest rate.
 
 ## Data Overview:
 The Data used is from: https://archive.ics.uci.edu/dataset/222/bank+marketing.  
@@ -74,7 +75,7 @@ To see which classification model works best and also see the performance of the
 
 ![image](https://github.com/user-attachments/assets/565daa11-4ae6-4883-87f6-2be1fb3befad)
 
-From the performance metrics, Random Forest stands out as the best model due to its ability to handle complex relationships, feature interactions, and outliers, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly as they assume linear separability, which limits their performance on complex datasets. SVM with an RBF kernel can handle non-linearity but is computationally expensive and sensitive to hyperparameters like C . Decision Trees on the other hand tend to overfit, especially with imbalanced data. And while XGBoost is powerful, it requires extensive tuning to surpass Random Forest. 
+From the performance metrics, Random Forest stands out as the best performing model due to its ability to handle complex relationships, feature interactions, and outliers, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly in comparison since they assume linear separability, which limits their performance on complex datasets. Although SVM with an RBF kernel can handle non-linearity, it is computationally expensive and sensitive to hyperparameters like C hence why it did not perform as well. Decision Trees on the other hand are prone to overfitting especially with imbalanced data. And while XGBoost is powerful, it requires extensive tuning to surpass Random Forest. 
 
 ### Hyper parameter tuning the best model
 Hyper parameter tuning was done using Randomized Search CV
@@ -82,7 +83,7 @@ Hyper parameter tuning was done using Randomized Search CV
 ![image](https://github.com/user-attachments/assets/5178ea9a-3930-46d5-887b-bc8a0554fa59)
 
 
-On comparing our F1 score of the baseline random forest model and the tuned model, the F1 is higher in the tuned model hence hyperparameter tuning has enhanced our random forest model performance making it an optimal choice for analysis and with the same parameters we will make predictions on our test set to see if our model performs just as well on the unseen data.
+On comparing our F1 score of the baseline random forest model and the tuned model, the F1 score is higher in the tuned model therefore hyperparameter tuning has enhanced our random forest model performance making it an optimal choice for analysis. With the same parameters we will make predictions on our test set to see if our model performs just as well on the unseen data.
 
 ### Final evaluation on the test set
 ![image](https://github.com/user-attachments/assets/2205fcaf-1fb9-40ff-9415-ffe598ab983b)
@@ -93,18 +94,30 @@ Judging from the performance metrics from evaluation on the test set, we can see
 ### Evaluating the tuned model using the precision-recall curve
 ![image](https://github.com/user-attachments/assets/b031c92d-90ab-48b1-9c89-9a256e206bdb)
 
-The Area under the above curve provides a better understanding of how well the model is detecting the minority class.
-An AUC-PR of 0.99 means that the model achieves near-perfect precision and recall for the positive clasd suggesting that the model is correctly identifying most of the positive instances (high recall) while also minimizing false positives (high precision).
 
-## Real-World Implications of the Model
-- **1. Targeted Marketing Campaigns**: 
-By predicting which customers are most likely to subscribe to a term deposit, the bank can focus efforts on high-potential leads by allocating resources (e.g., time, budget, and workforce) to customers with a high likelihood of subscription, maximizing return on investment (ROI).
-- **2. Cost Optimization**:
-The model reduces unnecessary expenses by avoiding unproductive contacts e.g customers predicted to have a low probability of subscription can either be deprioritized or approached with less intensive marketing efforts.
-- **3. Improved Campaign Success Rates**:
-With the predictive capability of the model, the bank can estimate the success rate of a campaign before launching it, based on the number of high-likelihood customers targeted making it easier to track performance and adjust strategies.
-- **4. Long-Term Customer Relationship Management**:
-By identifying customers who are more likely to subscribe, the bank can prioritize building long-term relationships with them, possibly cross-selling or upselling other products in the future. Offering a positive and personalized experience for these customers can increase loyalty and retention rates.
+The above curve provides a better understanding of how well the model is at detecting the minority class. An AUC-PR of 0.99 means that the model achieves near-perfect precision and recall for the positive clasd suggesting that the model is correctly identifying most of the positive instances (high recall) while also minimizing false positives (high precision).
+
+### Evaluating the tuned model using the ROC-AUC curve
+![image](https://github.com/user-attachments/assets/579fe1e0-0a25-4c3b-8f24-1a15f2b60794)
+
+
+The above curve provides a better understanding of how well the model is at differentiating between the positive class and the negative class. A ROC-AUC score of 0.99 means that the model can almost perfectly distinguish between the positive and negative classes, making it highly reliable for predicting customer behavior in the bank marketing campaign.
+
+## Error Analysis
+### Confusion Matrix
+![image](https://github.com/user-attachments/assets/36c513d6-a517-48e0-af41-d6778c5ee71b)
+
+
+The confusion matrix evaluates the performance of the classification model by visualizing how well the model's predictions match the actual values. It helps identify where the model is making mistakes by showing the false positives and false negatives.
+
+### Error rate by class
+![image](https://github.com/user-attachments/assets/47757234-f08f-4b75-8c17-2f8914c867af)
+
+
+The visualization shows how often the model makes errors when classifying each class, which helps us understand whether the model is more prone to misclassifying one class over the other.
+Error rate of 0.083375 means around 8.3% of class 0 samples were misclassified.
+Error rate of 0.042598 means around 4.2% of class 1 samples were misclassified.
+This highlights that our model is more likely to misclassify class 0 samples i.e classifying false negatives.
 
 
 
