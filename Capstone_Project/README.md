@@ -53,7 +53,8 @@ The data includes the following columns:
   ![image](https://github.com/user-attachments/assets/46e577db-52ff-498d-95b8-4400f42e5f40)
 
 ### Baseline Models
-To see which classification model works best and also see the performance of the models before hyperparameter tuning is done.
+To determine the best-performing classification models and evaluate their performance before hyperparameter tuning, the F1 score was chosen as the evaluation metric. Given that the dataset is imbalanced, and identifying customers who subscribe to the term deposit is more critical than identifying those who don't (i.e one class is more important), the F1 score is particularly useful. It balances precision and recall, ensuring the model performs well in minimizing both false positives and false negatives. 
+
 - **1. Logistic Regression**
 
 ![image](https://github.com/user-attachments/assets/622a90c2-b318-404e-a873-12947af84cf7)
@@ -74,7 +75,7 @@ To see which classification model works best and also see the performance of the
 
 ![image](https://github.com/user-attachments/assets/565daa11-4ae6-4883-87f6-2be1fb3befad)
 
-Since the dataset was imbalanced, and one class is more important than the other (i.e, identifying customers who subscribe to the term deposit is more important than identifying those who don't), F1 score is the evaluation metric that was used to evaluate model performance. Random Forest stands out as the best performing model due to its ability to handle complex relationships, feature interactions, and outliers, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly in comparison since they assume linear separability, which limits their performance on complex datasets. Although SVM with an RBF kernel can handle non-linearity, it is computationally expensive and sensitive to hyperparameters like C hence why it did not perform as well. Decision Trees on the other hand are prone to overfitting especially with imbalanced data. And while XGBoost is powerful, it requires extensive tuning to surpass Random Forest. 
+Random Forest stands out as the best performing model due to its ability to handle complex relationships and feature interactions, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly in comparison since they assume linear separability, which limits their performance on complex datasets. Although SVM with an RBF kernel can handle non-linearity, it is computationally expensive and sensitive to hyperparameters like C hence why it did not perform as well. Decision Trees on the other hand are prone to overfitting especially with imbalanced data. And while XGBoost is powerful, it requires extensive tuning to surpass Random Forest. 
 
 ### Hyper parameter tuning the best model
 Hyper parameter tuning was done using Randomized Search CV
