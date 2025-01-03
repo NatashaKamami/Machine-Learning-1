@@ -39,7 +39,8 @@ The data includes the following columns:
    ![image](https://github.com/user-attachments/assets/3073e91d-3aa2-456a-af0b-b28beb3c7f3c)
 
 4. **Countplot of the deposit column**: Visualizes the class imbalance in the target variable.
-   ![image](https://github.com/user-attachments/assets/bbfd8bc3-985d-436a-89c4-65e1d899cddc)
+   ![image](https://github.com/user-attachments/assets/bcfc526a-6b49-441d-bf56-8a3c550b307d)
+
 
 ## Data PreProcessing
 1. **Encoding**: Label encoding was used for columns with binary variables i.e yes and no, while one-hot encoding was used for columns with multiple categories since label encoding in such columns may introduce an unintended ordinal relationship.
