@@ -88,7 +88,7 @@ The F1 score of the tuned Random Forest model is higher than that of the baselin
 ![image](https://github.com/user-attachments/assets/2205fcaf-1fb9-40ff-9415-ffe598ab983b)
 
 
-The F1 score from the evaluation on the test set shows that the model performs just as well on new, unseen data as it did on the training data.
+The F1 score from the evaluation on the test set shows that the model performs just as well on new, unseen data as it did on the validation data.
 
 ### Evaluating the tuned model using the precision-recall curve
 ![image](https://github.com/user-attachments/assets/b031c92d-90ab-48b1-9c89-9a256e206bdb)
