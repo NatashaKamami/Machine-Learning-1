@@ -81,19 +81,20 @@ Random Forest stands out as the best performing model due to its ability to hand
 ### Hyper parameter tuning the best model
 Hyper parameter tuning was done using Randomized Search CV
 
-![image](https://github.com/user-attachments/assets/5178ea9a-3930-46d5-887b-bc8a0554fa59)
+![image](https://github.com/user-attachments/assets/8351acf6-1049-4e57-8b75-836ee44f5e01)
+
 
 
 The F1 score of the tuned Random Forest model is higher than that of the baseline model, indicating that hyperparameter tuning has improved its performance. This makes the tuned Random Forest model an optimal choice for our analysis. Using these optimized parameters, we will now evaluate the model on the test set to see if it performs equally well on unseen data.
 
 ### Final evaluation on the test set
-![image](https://github.com/user-attachments/assets/2205fcaf-1fb9-40ff-9415-ffe598ab983b)
+![image](https://github.com/user-attachments/assets/86cfd2ba-4e18-4e82-aa62-d96eeb278b7f)
 
 
 The F1 score from the evaluation on the test set shows that the model performs just as well on new, unseen data as it did on the validation data.
 
 ### Evaluating the tuned model using the precision-recall curve
-![image](https://github.com/user-attachments/assets/b031c92d-90ab-48b1-9c89-9a256e206bdb)
+![image](https://github.com/user-attachments/assets/be031442-266b-41ca-aafb-567bd26478ef)
 
 
 The above curve provides a better understanding of how well the model is at detecting the minority class(positive class). An AUC-PR of 0.99 means that the model achieves near-perfect precision and recall for the positive class suggesting that the model is correctly identifying most of the positive instances (high recall) while also minimizing false positives (high precision).
@@ -101,18 +102,19 @@ The above curve provides a better understanding of how well the model is at dete
 
 ## Error Analysis
 ### Confusion Matrix
-![image](https://github.com/user-attachments/assets/36c513d6-a517-48e0-af41-d6778c5ee71b)
+![image](https://github.com/user-attachments/assets/82b0393b-a910-4a80-ac15-1de808176ed8)
+
 
 
 The confusion matrix evaluates the performance of the classification model by visualizing how well the model's predictions match the actual values. It helps identify where the model is making mistakes by showing the false positives and false negatives.
 
 ### Error rate by class
-![image](https://github.com/user-attachments/assets/47757234-f08f-4b75-8c17-2f8914c867af)
+![image](https://github.com/user-attachments/assets/2147af51-4645-4be3-b87e-38322b9ad14c)
 
 
 The visualization shows how often the model makes errors when classifying each class, which helps us understand whether the model is more prone to misclassifying one class over the other.
-Error rate of 0.083375 means around 8.3% of class 0 samples were misclassified.
-Error rate of 0.042598 means around 4.2% of class 1 samples were misclassified.
+Error rate of 0.082496 means around 8.2% of class 0 samples were misclassified.
+Error rate of 0.038351 means around 3.8% of class 1 samples were misclassified.
 This highlights that our model is more likely to misclassify class 0 samples i.e classifying false negatives.
 
 
