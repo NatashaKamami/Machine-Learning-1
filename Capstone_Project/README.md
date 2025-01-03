@@ -25,16 +25,15 @@ The data includes the following columns:
 - **Deposit**: (The target variable) where: 1 indicates the customer subscribed to the term deposit and 0 indicates they did not.
 
 ## Exploratory Data Analysis
-1. **Description of summary statistics for our numeric columns**: Helps us get an overview of our data and helps in identifying outliers in our data.
-   
+1. **Description of summary statistics for our numeric columns**: Provides an overview of the data by highlighting its range, spread, and potential outliers.  
   ![image](https://github.com/user-attachments/assets/aec54db6-d427-442c-b328-0a5fa759e2a9)
 
-2. **Distribution plots for the numeric columns**: Displays distribution of values in the numeric columns and can show presence of outliers.
+2. **Distribution plots for the numeric columns**: Visualize how values are distributed across numeric columns revealing skewness and the presence of outliers.
    ![image](https://github.com/user-attachments/assets/2a73c9bf-9ccf-4d5d-bb11-39156580095c)
    ![image](https://github.com/user-attachments/assets/9e9d8f47-87d6-4816-b648-7a5aaf55f1c9)
    ![image](https://github.com/user-attachments/assets/d6ccc81d-ec64-4ba3-85b4-f8105d1cd27e)
 
-3. **Pairplot for the numeric columns depending on deposit**: Investigates whether or not our data is linearly separable into the 2 different classes.
+3. **Pairplot for the numeric columns depending on deposit**: Explores relationships between numeric columns by identifying potential outliers, patterns and correlations, and also investigates whether the classes of the target variable are linearly separable.
    ![image](https://github.com/user-attachments/assets/d12de381-eb62-421c-bc66-baad0c87f135)
    ![image](https://github.com/user-attachments/assets/79626a18-4f3a-4678-9724-261bce478156)
    ![image](https://github.com/user-attachments/assets/3073e91d-3aa2-456a-af0b-b28beb3c7f3c)
@@ -83,13 +82,13 @@ Hyper parameter tuning was done using Randomized Search CV
 ![image](https://github.com/user-attachments/assets/5178ea9a-3930-46d5-887b-bc8a0554fa59)
 
 
-On comparing our F1 score of the baseline random forest model and the tuned model, the F1 score is higher in the tuned model therefore hyperparameter tuning has enhanced our random forest model performance making it an optimal choice for analysis. With the same parameters we will make predictions on our test set to see if our model performs just as well on the unseen data.
+The F1 score of the tuned Random Forest model is higher than that of the baseline model, indicating that hyperparameter tuning has improved its performance. This makes the tuned Random Forest model an optimal choice for our analysis. Using these optimized parameters, we will now evaluate the model on the test set to see if it performs equally well on unseen data.
 
 ### Final evaluation on the test set
 ![image](https://github.com/user-attachments/assets/2205fcaf-1fb9-40ff-9415-ffe598ab983b)
 
 
-Judging from the F1 score from evaluation on the test set, we can see that the model works just as fine on new data as it did on the training data.
+The F1 score from the evaluation on the test set shows that the model performs just as well on new, unseen data as it did on the training data.
 
 ### Evaluating the tuned model using the precision-recall curve
 ![image](https://github.com/user-attachments/assets/b031c92d-90ab-48b1-9c89-9a256e206bdb)
