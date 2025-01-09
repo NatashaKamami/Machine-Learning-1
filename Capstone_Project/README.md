@@ -14,7 +14,7 @@ The data includes the following columns:
 - **Housing**: Whether the customer has a housing loan.
 - **Loan**: Whether the customer has a personal loan.
 - **Contact**: Communication type used to contact the customer.
-- **Day of Week**: The last contact day of the month.
+- **Day of Week**: Last contact day of the week.
 - **Month**: The last contact month of the year.
 - **Duration**: Last contact duration in seconds.
 - **Campaign**: Number of contacts performed during this campaign for a customer.
@@ -38,7 +38,7 @@ The data includes the following columns:
 ![image](https://github.com/user-attachments/assets/fb4a97fb-95bc-4617-88ca-c52531973153)
 
 
-3. **Pairplot for the numeric columns depending on deposit**: Explores relationships between some numeric columns by identifying potential outliers, patterns and correlations, and also investigates whether the classes of the target variable are linearly separable.
+3. **Pairplot for selected numeric columns depending on deposit**: Explores relationships between some numeric columns by identifying potential outliers, patterns and correlations, and also investigates whether the classes of the target variable are linearly separable.
 ![image](https://github.com/user-attachments/assets/eea5357d-3ec9-4bc6-8bb7-eef9d639cd64)
 ![image](https://github.com/user-attachments/assets/658b26c2-4a91-4614-97c8-cd548671301d)
 ![image](https://github.com/user-attachments/assets/61f22918-8050-4e38-b55c-78ff2bb82022)
@@ -54,7 +54,7 @@ The data includes the following columns:
 
 ## Data PreProcessing
 1. **Encoding**: Label encoding was used for the deposit column which had binary variables i.e yes and no, while one-hot encoding was used for all the other categorical columns that had multiple categories since label encoding in such columns may introduce an unintended ordinal relationship.
-2.  **Feature Scaling**: Standard Scaling was used in the age column since data was normally distributed, MinMax Scaling was used in the employment variation rate, consumer price index, consumer confidence index, 3-Month Euribor Rate, Number of employees columns since data was not normally distributed while robust scaling was used in all the other numeric columns(duration, campaign, previous, pdays) since data in these columns had outliers and was also not normally distributed.
+2.  **Feature Scaling**: Standard Scaling was used in the age column since data was normally distributed, MinMax Scaling was used in the employment variation rate, consumer price index, consumer confidence index, 3-Month Euribor Rate, Number of employees columns since data was not normally distributed while robust scaling was used in all the other numeric columns(duration, campaign, previous, pdays) since data in these columns had extreme outliers and was also not normally distributed.
 3.  **Splitting the data into training, validation and training sets**: 60% for training, 20% for validation and 20% for testing.
 ![image](https://github.com/user-attachments/assets/8a05d90d-634b-4b2c-867b-f3afdbad3a06)
 
@@ -68,33 +68,37 @@ To determine the best-performing classification models and evaluate their perfor
 
 - **1. Logistic Regression**
 
-![image](https://github.com/user-attachments/assets/677d62a3-2dfe-4286-8497-6878400dfc5b)
+![image](https://github.com/user-attachments/assets/45d8f81d-4c4e-4a04-abe4-0fccab9dd0b5)
+
 - **2. Support Vector Machine - Linear Kernel**
 
-![image](https://github.com/user-attachments/assets/0828670b-f038-4238-80f8-83598c1014d2)
+![image](https://github.com/user-attachments/assets/0a49cd0b-3b97-4b86-a72b-c24ffbc83d50)
+
 - **3. Support Vector Machine - RBF Kernel**
 
-![image](https://github.com/user-attachments/assets/051d230b-8f95-4592-94f2-1aa8a3442d33)
+![image](https://github.com/user-attachments/assets/78687b8c-3760-46ab-829d-bca9ac2f2261)
+
 - **4. Decision Tree Classifier**
   
-![image](https://github.com/user-attachments/assets/7288c63f-8ac5-4dda-bb59-f49d1e320888)
+![image](https://github.com/user-attachments/assets/d87861ef-19e8-416b-a7a6-c7aceb2721d0)
 
 - **5. Random Forest Classifier**
 
-![image](https://github.com/user-attachments/assets/8cce60e2-88fb-4d0f-9540-a944fd5e2762)
+![image](https://github.com/user-attachments/assets/2b76efda-c00e-404f-9101-23a3ddf0fbe6)
+
 
 Random Forest stands out as the best performing model due to its ability to handle complex relationships and feature interactions, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly in comparison since they assume linear separability, which limits their performance on complex datasets. Although SVM with an RBF kernel can handle non-linearity, it is computationally expensive and sensitive to hyperparameters like C hence why it did not perform as well. Decision Trees on the other hand are prone to overfitting especially with imbalanced data. 
 
 ### Hyper parameter tuning the best model
 Hyper parameter tuning was done using Randomized Search CV
 
-![image](https://github.com/user-attachments/assets/d6c5ea91-d536-44d8-aa70-b08eca73b9ee)
+![image](https://github.com/user-attachments/assets/3d5714f1-b498-482a-a41e-e3385bc9582f)
 
 
 The F1 score of the tuned Random Forest model is a lot higher than that of the baseline model, indicating that hyperparameter tuning has improved its performance. This makes the tuned Random Forest model an optimal choice for our analysis. Using these optimized parameters, we will now evaluate the model on the test set to see if it performs equally well on unseen data.
 
 ### Final evaluation on the test set
-![image](https://github.com/user-attachments/assets/a8f198ad-dbdb-4973-a33c-d81c8bac998c)
+![image](https://github.com/user-attachments/assets/b64746b4-8859-4bd5-87a8-f4fcf956e85f)
 
 
 The F1 score from the evaluation on the test set is a bit lower than that from the validation set. The f1 score is above average hence showing that the model performs well on new, unseen data.
