@@ -64,7 +64,7 @@ The data includes the following columns:
  
 ## Selecting and Training the model
 ### Baseline Models
-To determine the best-performing classification models and evaluate their performance before hyperparameter tuning, the F1 score was chosen as the evaluation metric. Given that the dataset is imbalanced, and identifying customers who subscribe to the term deposit is more critical than identifying those who don't (i.e one class is more important), the F1 score is particularly useful. It balances precision and recall, ensuring the model performs well in minimizing both false positives and false negatives. 
+To determine the best-performing classification models and evaluate their performance before hyperparameter tuning, the F1 score was chosen as the evaluation metric. Given that the dataset is imbalanced, and identifying customers who subscribe to the term deposit is more critical than identifying those who don't (i.e one class is more important), the F1 score is particularly useful since it balances precision and recall, ensuring the model performs well in minimizing both false positives and false negatives. 
 
 - **1. Logistic Regression**
 
@@ -87,7 +87,7 @@ To determine the best-performing classification models and evaluate their perfor
 ![image](https://github.com/user-attachments/assets/2b76efda-c00e-404f-9101-23a3ddf0fbe6)
 
 
-Random Forest stands out as the best performing model due to its ability to handle complex relationships and feature interactions, while being robust to overfitting. Logistic Regression and SVM with a linear kernel perform poorly in comparison since they assume linear separability, which limits their performance on complex datasets. Although SVM with an RBF kernel can handle non-linearity, it is computationally expensive and sensitive to hyperparameters like C hence why it did not perform as well. Decision Trees on the other hand are prone to overfitting especially with imbalanced data. 
+Random Forest stands out as the best performing model. 
 
 ### Hyper parameter tuning the best model
 Hyper parameter tuning was done using Randomized Search CV
