@@ -5,10 +5,10 @@ This project aims to analyze credit risk to assess potential risks associated wi
 
 ## Methodology
 ### 1. Data Cleaning
-- **Handling Missing Values** - Missing values in each column were filled them with appropriate values (e.g., mean, median, or mode).
-- **Dropping Unnecessary Columns** - Some columns that were irrelevant for analysis were removed from the dataset.
-- **Data Type Conversions** - Columns with wrong data types were converted into appropriate data types (e.g., categorical to numerical) to ensure consistency in analysis.
 - **Renaming Columns** - Columns were renamed for easy readability and understanding of the data.
+- **Handling Missing Values** - Missing values were filled them with appropriate values (e.g., mean, median, or mode) amd columns with missing values amounting to 60% of the data were dropped. Furthermore, records that had missing values in more than one column where the columns semmed correlated were also dropped since the missingness of these values was not completely random.
+- **Dropping Unnecessary Columns** - Some columns that were irrelevant for analysis were removed from the dataset.
+
 
 ### 2. Exploratory Data Analysis (EDA)
 Basic exploratory data analysis was conducted to get an overview of the data,visualize key trends and distributions in the data, as well as identify relationships between the features in the dataset.
@@ -17,16 +17,16 @@ Basic exploratory data analysis was conducted to get an overview of the data,vis
 **Encoding Categorical Variables:** - Categorical columns were encoded using a label encoding to convert them into numerical form.
 
 ### 4. Handling Class Imbalance
-There existed an imbalance in the distribution of the classes in the target variable (`y`). SMOTE (Synthetic Minority Over-sampling Technique) was applied in order to balance the classes.
+There existed an imbalance in the distribution of the classes in the target variable (`y`). SMOTE (Synthetic Minority Over-sampling Technique) was applied on the training set in order to balance the classes in the training set while maintaining the imbalance in the test and validation set in order to maintain the authenticity of the data.
 
 ### 5. Model Training and Evaluation
-A number of classification models were trained and the models were evaluated. The models implemented included:
+A number of classification models were trained and the models were evaluated using the f1 score. The models implemented included:
 
 1. **Logistic Regression:** - Standard logistic regression was applied, as well as L1-regularized logistic regression (Lasso) and L2-regularized logistic regression (Ridge).
 
-2. **Decision Tree Classifier:** - A Decision Tree model was trained and cross-validated.
+2. **Decision Tree Classifier:** - A Decision Tree model was trained .
 
-3. **Random Forest Classifier:** - A Random Forest model was also trained and evaluated using cross-validation.
+3. **Random Forest Classifier:** - A Random Forest model was also trained and evaluated.
 
 ### 6. Hyperparameter Tuning
 Random Forest was the best performing model from the models that were trained and hyperparameter tuning was done on it to improve the model's performance.
