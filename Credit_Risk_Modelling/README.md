@@ -8,21 +8,19 @@ This project aims to analyze credit risk to assess potential risks associated wi
 - **Handling Missing Values** - Missing values in each column were filled them with appropriate values (e.g., mean, median, or mode).
 - **Dropping Unnecessary Columns** - Some columns that were irrelevant for analysis were removed from the dataset.
 - **Data Type Conversions** - Columns with wrong data types were converted into appropriate data types (e.g., categorical to numerical) to ensure consistency in analysis.
+- **Renaming Columns** - Columns were renamed for easy readability and understanding of the data.
 
 ### 2. Exploratory Data Analysis (EDA)
-Basic exploratory data analysis was conducted to visualize key trends and distributions in the data.
+Basic exploratory data analysis was conducted to get an overview of the data,visualize key trends and distributions in the data, as well as identify relationships between the features in the dataset.
 
 ### 3. Data Preprocessing
-**Encoding Categorical Variables:** - Categorical columns are identified and label-encoded using `LabelEncoder` to convert them into numerical form.
+**Encoding Categorical Variables:** - Categorical columns were encoded using a label encoding to convert them into numerical form.
 
 ### 4. Handling Class Imbalance
-   - The dataset is split into features (`X`) and the target variable (`y`).
-   - SMOTE (Synthetic Minority Over-sampling Technique) is applied to balance the classes.
-   - The new class distribution is visualized to confirm balancing.
+There existed an imbalance in the distribution of the classes in the target variable (`y`). SMOTE (Synthetic Minority Over-sampling Technique) was applied in order to balance the classes.
 
 ### 5. Model Training and Evaluation
-1. **Data Splitting:**
-   - The resampled dataset is split into training (70%) and testing (30%) sets.
+A number of classification models were trained and the model were evaluated
 
 2. **Logistic Regression:**
    - Standard logistic regression is applied, achieving an accuracy of **81.6%**.
