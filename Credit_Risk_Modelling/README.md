@@ -30,10 +30,10 @@ A number of classification models were trained and the models were evaluated usi
 
 ### 6. Hyperparameter Tuning
 Random Forest was the best performing model from the models that were trained and hyperparameter tuning was done on it to improve the model's performance.
-A `RandomizedSearchCV` was used to optimize the hyperparameters of the Random Forest classifier and find the best parameters.
+A `RandomizedSearchCV` was used to optimize the hyperparameters of the Random Forest classifier and find the best parameters. However, tuning the model did not help improve the model since the model was already performing well.
 
 ### 7. Generating Credit Scores and Categorizing Customers
-The tuned model was used to predict loan default probabilities, which were scaled to a range of 0-800 to represent credit scores. After credit score calculation, customers were then classified into five categories based on their credit score:
+The random forest model was used to predict loan default probabilities, which were scaled to a range of 0-800 to represent credit scores. After credit score calculation, customers were then classified into five categories based on their credit score:
      - **Bad Customer** (≤ 200)
      - **2nd Worst** (201 - 350)
      - **Not So Bad** (351 - 500)
