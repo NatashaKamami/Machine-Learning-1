@@ -20,51 +20,30 @@ Basic exploratory data analysis was conducted to get an overview of the data,vis
 There existed an imbalance in the distribution of the classes in the target variable (`y`). SMOTE (Synthetic Minority Over-sampling Technique) was applied in order to balance the classes.
 
 ### 5. Model Training and Evaluation
-A number of classification models were trained and the model were evaluated
+A number of classification models were trained and the models were evaluated. The models implemented included:
 
-2. **Logistic Regression:**
-   - Standard logistic regression is applied, achieving an accuracy of **81.6%**.
-   - L1-regularized logistic regression (Lasso) and L2-regularized logistic regression (Ridge) are also tested.
+1. **Logistic Regression:** - Standard logistic regression was applied, as well as L1-regularized logistic regression (Lasso) and L2-regularized logistic regression (Ridge).
 
-3. **Decision Tree Classifier:**
-   - A Decision Tree model is trained and cross-validated.
-   - The mean accuracy score is **96.1%**.
+2. **Decision Tree Classifier:** - A Decision Tree model was trained and cross-validated.
 
-4. **Random Forest Classifier:**
-   - A Random Forest model is trained and evaluated using cross-validation.
-   - The mean accuracy is **98.1%**, and additional metrics (precision, recall, F1-score) are reported.
+3. **Random Forest Classifier:** - A Random Forest model was also trained and evaluated using cross-validation.
 
-### 6. Generating Credit Scores and Categorizing Customers
-1. **Credit Score Calculation:**
-   - A Random Forest model is trained and used to predict loan default probabilities.
-   - These probabilities are scaled to a range of **0-800** to represent credit scores.
+### 6. Hyperparameter Tuning
+Random Forest was the best performing model from the models that were trained and hyperparameter tuning was done on it to improve the model's performance.
+A `RandomizedSearchCV` was used to optimize the hyperparameters of the Random Forest classifier and find the best parameters.
 
-2. **Customer Categorization:**
-   - Customers are classified into five categories based on credit score:
+### 7. Generating Credit Scores and Categorizing Customers
+The tuned model was used to predict loan default probabilities, which were scaled to a range of 0-800 to represent credit scores. After credit score calculation, customers were then classified into five categories based on their credit score:
      - **Bad Customer** (≤ 200)
      - **2nd Worst** (201 - 350)
      - **Not So Bad** (351 - 500)
      - **Ideal Guys** (501 - 700)
      - **Big Loans** (> 700)
    
-## Hyperparameter Tuning
-1. **Randomized Search for Best Parameters:**
-   - A `RandomizedSearchCV` is used to optimize the hyperparameters of the Random Forest classifier.
-   - The best parameters found are:
-     - `max_depth`: 25
-     - `min_samples_leaf`: 2
-     - `min_samples_split`: 4
-     - `n_estimators`: 72
-   - The best accuracy achieved through tuning is **97.5%**.
 
 ## Conclusion
-- The project successfully predicts credit risk and categorizes customers using machine learning techniques.
-- Random Forest performed best, achieving high accuracy and reliable classification.
-- Future improvements could include feature engineering and testing additional models.
+The project successfully predicts credit risk and categorizes customers using machine learning techniques.
 
 
-
-## Conclusion
-This project provides a structured approach to cleaning and preparing credit risk data for analysis. By handling missing values and unnecessary columns efficiently, it sets the stage for further predictive modeling and decision-making processes.
 
 
