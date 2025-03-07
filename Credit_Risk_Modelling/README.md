@@ -17,14 +17,14 @@ Basic exploratory data analysis was conducted to get an overview of the data,vis
 **Encoding Categorical Variables:** - Categorical columns were encoded using a label encoding to convert them into numerical form.
 
 ### 4. Handling Class Imbalance
-There existed an imbalance in the distribution of the classes in the target variable (`y`). SMOTE (Synthetic Minority Over-sampling Technique) was applied on the training set in order to balance the classes in the training set while maintaining the imbalance in the test and validation set in order to maintain the authenticity of the data.
+There existed an imbalance in the distribution of the classes in the target variable (`y`). SMOTE (Synthetic Minority Over-sampling Technique) was applied on the dataset in order to balance the classes.
 
 ### 5. Model Training and Evaluation
 A number of classification models were trained and the models were evaluated using the f1 score. The models implemented included:
 
 1. **Logistic Regression:** - Standard logistic regression was applied, as well as L1-regularized logistic regression (Lasso) and L2-regularized logistic regression (Ridge).
 
-2. **Decision Tree Classifier:** - A Decision Tree model was trained .
+2. **Decision Tree Classifier:** - A Decision Tree model was trained.
 
 3. **Random Forest Classifier:** - A Random Forest model was also trained and evaluated.
 
@@ -40,7 +40,6 @@ The tuned model was used to predict loan default probabilities, which were scale
      - **Ideal Guys** (501 - 700)
      - **Big Loans** (> 700)
    
-
 ## Conclusion
 The project successfully predicts credit risk and categorizes customers using machine learning techniques.
 
